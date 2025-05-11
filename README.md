@@ -203,7 +203,7 @@ Assegura’t de treure la ISO de la màquina virtual!
 | Instal·lar paquet             | `pacman -S <paquet>`             | `apt install <paquet>`           |
 | Eliminar paquet               | `pacman -R <paquet>`             | `apt remove <paquet>`            |
 | Buscar paquet                 | `pacman -Ss <nom>`               | `apt search <nom>`               |
-| Consultar si un paquet està instal·lat | `pacman -Qs <nom>`      | `dpkg -l | grep <nom>`           |
+| Consultar si un paquet està instal·lat | `pacman -Qs <nom>`      | `dpkg -l I grep <nom>`           |
 | Neteges de paquets orfes      | `pacman -Rns $(pacman -Qdtq)`    | `apt autoremove`                 |
 
 ---
