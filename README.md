@@ -24,8 +24,9 @@ Arch Linux és un sistema operatiu minimalista pensat per a usuaris que volen te
 9. Instal·lació de KDE Plasma
 10. VirtualBox Guest Additions
 11. Sortida, reinici i comprovacions finals
-12. Comandes bàsiques (Arch vs Ubuntu)
-13. Consells per no trencar el sistema
+12. AUR – Arch User Repository
+13. Comandes bàsiques (Arch vs Ubuntu)
+14. Consells per no trencar el sistema
 
 ---
 
@@ -194,7 +195,48 @@ Assegura’t de treure la ISO de la màquina virtual!
 
 ---
 
-## 12. Comandes bàsiques (Arch vs Ubuntu)
+## 12. AUR – Arch User Repository
+
+L’**AUR (Arch User Repository)** és un repositori mantingut per la comunitat d’Arch Linux on es poden trobar milers de paquets que no estan disponibles als repositoris oficials. És una de les grans fortaleses d’Arch, ja que et permet instal·lar gairebé qualsevol aplicació disponible per a Linux.
+
+### Què és exactament?
+
+L’AUR conté *PKGBUILDs*, scripts que permeten compilar i instal·lar programari directament des del codi font. Com que no són binaris, és l’usuari qui els compila al seu sistema. Aquest sistema és molt potent, però també cal tenir cura, ja que no tot el que hi ha és oficial ni revisat.
+
+### Com s’utilitza?
+
+Per fer servir l’AUR de manera còmoda, es recomana instal·lar un ajudant com **`yay`** (Yet Another Yaourt), que facilita molt la gestió de paquets AUR.
+
+#### 1. Instal·lació de `yay` (un cop tens accés a internet i el sistema configurat)
+
+```bash
+sudo pacman -S git base-devel     # Assegura que tens les eines necessàries
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R alvaro:alvaro yay   # Canvia la propietat del directori
+cd yay
+makepkg -si                       # Compila i instal·la yay
+```
+
+#### 2. Ús bàsic de `yay`
+
+| Acció                         | Comanda                       |
+|------------------------------|-------------------------------|
+| Buscar un paquet             | `yay -Ss <nom>`               |
+| Instal·lar un paquet         | `yay -S <nom>`                |
+| Actualitzar tot el sistema   | `yay -Syu`                    |
+| Eliminar un paquet           | `yay -R <nom>`                |
+
+### Recomanacions
+
+- Revisa sempre els fitxers `PKGBUILD` abans de compilar per assegurar-te que no hi ha res sospitós.
+- Mantén actualitzat `yay` amb `yay -Syu`.
+- No abusis dels paquets AUR: prioritza sempre els repositoris oficials si hi ha alternativa.
+
+---
+
+
+## 13. Comandes bàsiques (Arch vs Ubuntu)
 
 | Funció                         | Arch Linux (`pacman`)           | Ubuntu/Debian (`apt`)            |
 |-------------------------------|----------------------------------|----------------------------------|
@@ -208,7 +250,7 @@ Assegura’t de treure la ISO de la màquina virtual!
 
 ---
 
-## 13. Consells per no trencar el sistema
+## 14. Consells per no trencar el sistema
 - **No fer actualitzacions parcials**: Aquesta és una gran manera d'acabar en l'infern de la dependència i trencar el sistema.
 - **No usis `pacman -Sy` sol**: sempre amb `pacman -Syu`, sinó pots provocar inconsistències.
 - **Mantén els paquets AUR al mínim**: És fantàstic i en realitat pot evitar que es trenquin les coses si s'entén i s'utilitza correctament, però és una eina perillosa, com qualsevol altra eina poderosa.
