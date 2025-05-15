@@ -194,6 +194,8 @@ reboot           # Reinicia la màquina
 
 Assegura’t de treure la ISO de la màquina virtual!
 
+Després del reinici, hauries de veure el GRUB, carregar Arch Linux i entrar a KDE Plasma amb l’usuari `alvaro`. Tens ara un Arch Linux complet i funcional per començar a experimentar!
+
 ---
 
 ## 12. Instal·lació i ús de Flatpak
@@ -246,7 +248,7 @@ L’AUR conté *PKGBUILDs*, scripts que permeten compilar i instal·lar programa
 
 Per fer servir l’AUR de manera còmoda, es recomana instal·lar un ajudant com **`yay`** (Yet Another Yaourt), que facilita molt la gestió de paquets AUR.
 
-#### 1. Instal·lació de `yay` (un cop tens accés a internet i el sistema configurat)
+#### 1. Instal·lació de `yay`
 
 ```bash
 sudo pacman -S git base-devel     # Assegura que tens les eines necessàries
@@ -299,9 +301,3 @@ makepkg -si                       # Compila i instal·la yay
 - **Evita eliminar paquets del sistema base** o del grup `base`/`base-devel`.
 - **Estigues al dia** Això és menys important, especialment si seguiu les dues primeres regles de prop, però encara és possible tenir problemes si esteu significativament darrere de les actualitzacions
 - **Tingues un live USB preparat** per si cal recuperar el sistema.
-
----
-
-## Resultat
-
-Després del reinici, hauries de veure el GRUB, carregar Arch Linux i entrar a KDE Plasma amb l’usuari `alvaro`. Tens ara un Arch Linux complet i funcional per començar a experimentar!
