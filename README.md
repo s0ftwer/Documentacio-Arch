@@ -24,9 +24,10 @@ Arch Linux és un sistema operatiu minimalista pensat per a usuaris que volen te
 9. Instal·lació de KDE Plasma
 10. VirtualBox Guest Additions
 11. Sortida, reinici i comprovacions finals
-12. AUR – Arch User Repository
-13. Comandes bàsiques (Arch vs Ubuntu)
-14. Consells per no trencar el sistema
+12. Instal·lació i ús de Flatpak
+13. AUR – Arch User Repository
+14. Comandes bàsiques (Arch vs Ubuntu)
+15. Consells per no trencar el sistema
 
 ---
 
@@ -195,7 +196,45 @@ Assegura’t de treure la ISO de la màquina virtual!
 
 ---
 
-## 12. AUR – Arch User Repository
+## 12. Instal·lació i ús de Flatpak
+
+**Flatpak** és un sistema de paquets universal i aïllat, ideal per instal·lar aplicacions en qualsevol distribució Linux sense preocupar-se per les dependències. Funciona a través de contenidors i és una bona alternativa per obtenir programes com VLC, LibreOffice, Firefox, entre molts altres.
+
+### Instal·lació de Flatpak
+
+```bash
+sudo pacman -S flatpak
+```
+
+Activa el repositori oficial de Flatpak, **Flathub**, que conté la majoria d’aplicacions disponibles:
+
+```bash
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+### Exemple d’instal·lació d’aplicacions amb Flatpak
+
+```bash
+flatpak install flathub org.mozilla.firefox
+flatpak install flathub org.videolan.VLC
+flatpak install flathub org.libreoffice.LibreOffice
+flatpak install flathub org.kde.okular
+flatpak install flathub com.visualstudio.code
+```
+
+### Comandes útils amb Flatpak
+
+| Acció                         | Comanda                                       |
+|------------------------------|-----------------------------------------------|
+| Llistar apps instal·lades    | `flatpak list`                                |
+| Instal·lar aplicació         | `flatpak install flathub <nom.del.paquet>`    |
+| Executar aplicació           | `flatpak run <nom.del.paquet>`                |
+| Eliminar aplicació           | `flatpak uninstall <nom.del.paquet>`          |
+| Actualitzar aplicacions      | `flatpak update`                              |
+
+---
+
+## 13. AUR – Arch User Repository
 
 L’**AUR (Arch User Repository)** és un repositori mantingut per la comunitat d’Arch Linux on es poden trobar milers de paquets que no estan disponibles als repositoris oficials. És una de les grans fortaleses d’Arch, ja que et permet instal·lar gairebé qualsevol aplicació disponible per a Linux.
 
@@ -236,7 +275,7 @@ makepkg -si                       # Compila i instal·la yay
 ---
 
 
-## 13. Comandes bàsiques (Arch vs Ubuntu)
+## 14. Comandes bàsiques (Arch vs Ubuntu)
 
 | Funció                         | Arch Linux (`pacman`)           | Ubuntu/Debian (`apt`)            |
 |-------------------------------|----------------------------------|----------------------------------|
@@ -250,7 +289,7 @@ makepkg -si                       # Compila i instal·la yay
 
 ---
 
-## 14. Consells per no trencar el sistema
+## 15. Consells per no trencar el sistema
 - **No fer actualitzacions parcials**: Aquesta és una gran manera d'acabar en l'infern de la dependència i trencar el sistema.
 - **No usis `pacman -Sy` sol**: sempre amb `pacman -Syu`, sinó pots provocar inconsistències.
 - **Mantén els paquets AUR al mínim**: És fantàstic i en realitat pot evitar que es trenquin les coses si s'entén i s'utilitza correctament, però és una eina perillosa, com qualsevol altra eina poderosa.
